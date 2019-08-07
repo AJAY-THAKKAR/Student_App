@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Student Registration Form</title>
+    </head>
+    <body>
+        <form action="registrationServlet" method="post"> 
+            <table>
+                <tr>
+                    <td><label>First Name:</label></td>
+                    <td><input type="text" name="fname"></td>
+                </tr>
+                <tr>
+                    <td><label>Last Name:</label></td>
+                    <td><input type="text" name="lname"></td>
+                </tr>
+                <tr>
+                    <td><label>Address:</label></td>
+                    <td><textarea name="address" rows="5" cols="30"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td><input type="radio" name="gender" value="M" checked="checked">Male
+                        <input type="radio" name="gender" value="F">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Pin-Code:</label></td>
+                    <td><input type="text" name="pincode"></td>
+                </tr>
+                <tr>
+                    <td><label>Email Id:</label></td>
+                    <td><input type="text" name="email" placeholder="abc@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td><label>Date Of Birth:</label></td>
+                    <td><input type="text" name="dob" placeholder="dd-MM-YYYY"></td>
+                </tr>
+                <tr>
+                    <td><label>Contact No:</label></td>
+                    <td><input type="text" name="contactNo"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Register"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
