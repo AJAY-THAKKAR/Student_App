@@ -25,7 +25,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -56,16 +55,10 @@ public class RegistrationServlet extends HttpServlet {
             System.out.println("**********************************" + std);
             saveTheRecordToDatabase(std);
             
-            String name=request.getParameter("fname")+" "+request.getParameter("lname");
-            
-            if(name==null || name.trim()==""){
-                name="Student";
-            }
-
             boolean rs = false;
             String result="";
             if (to != null || to != "") {
-                rs = sendEmail(to,name);
+                rs = sendEmail(to);
             }
             if (rs) {
                 result= "Thank you for registering!!!!!Please check your email.";
@@ -98,7 +91,7 @@ public class RegistrationServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private boolean sendEmail(String to,String name) {
+    private boolean sendEmail(String to) {
         String host = "smtp.gmail.com";
         final String user = "noreply.toautomated.mail@gmail.com";//change accordingly
         final String password = "NoReply@123";//change accordingly
@@ -130,7 +123,7 @@ public class RegistrationServlet extends HttpServlet {
             message.setFrom(new InternetAddress(user));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject("No-Reply to this automated mail.");
-            message.setText("Dear " +name + " , Thanks to you for registering with us.\n Regards,HR Team.");
+            message.setText("Dear Student,Thanks to you for registering with us.\n Regards,HR Team.");
 
             //send the message
             Transport.send(message);
